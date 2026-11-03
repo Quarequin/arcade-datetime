@@ -1,5 +1,5 @@
 
-namespace DateTime {
+namespace dt {
 
     // ********* Misc. Utility Functions for formatting ************************
     export function leftZeroPadTo(inp: number, digits: number) {
