@@ -3,66 +3,6 @@ namespace DateTime {
     // ********* Exposed blocks ************************
 
     /**
-     * Set the default kind to process
-     * @param datetime kind to get
-     */
-    //% block=datetime_setdefaultkind
-    //% block="set default kind to $kindn"
-    //% kindn.shadow=datetime_kind
-    //% inlineInputMode=inline
-    //% weight=135
-    export function setCurKind(kindn: number) {
-        if (curKind == kindn) return;
-        curKind = kindn
-        const uid = checkid(curKind)
-        startYear = dtformatdata[uid][0]
-        timeToSetpoint = dtformatdata[uid][1]
-        cpuTimeAtSetpoint = cpuTimeInSeconds()
-    }
-
-    /**
-     * get the datetime value from kind data
-     * @param dropdown of datetime list
-     * @param datetime kind to get
-     */
-    //% block=datetime_getvaluefromkinddata
-    //% block="get $dt from datetime kind $kindn"
-    //% kindn.shadow=datetime_kind
-    //% inlineInputMode=inline
-    //% weight=133
-    export function getDataOfKind(dt: DropDatetime, kindn: number) {
-        const uid = checkid(kindn)
-        const udatetime = dtdata[uid]
-        switch (dt) {
-            case 0:
-                return udatetime.month
-                break
-
-            case 1:
-                return udatetime.day
-                break
-
-            case 2:
-                return udatetime.year
-                break
-
-            case 3:
-                return udatetime.hour
-                break
-
-            case 4:
-                return udatetime.minute
-                break
-
-            case 5:
-                return udatetime.second
-                break
-
-        }
-        return -1
-    }
-
-    /**
      * Set the time using 24-hour format. 
      * @param time from hour the hour (0-23), minute the minute (0-59), @param second the second (0-59)
      */
