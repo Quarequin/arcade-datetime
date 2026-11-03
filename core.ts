@@ -3,7 +3,7 @@ namespace dt {
     // ********* Time Calculation / Management ************************
 
 
-    function isLeapYear(y: Year): boolean {
+    export function isLeapYear(y: Year): boolean {
         // The /400 and /100 rules don't come into play until 2400 and 2300 or 0100.  We can ignore them here
         // Here's the code for accurate handling of leap years:
         return (y % 400 == 0 || (y % 100 != 0 && y % 4 == 0))
@@ -34,13 +34,13 @@ namespace dt {
         return { month: -1, day: -1 }
     }
 
-    function secondsSoFarForYear(m: Month, d: Day, y: Year, hh: Hour, mm: Minute, ss: Second): SecondsCount {
+    export function secondsSoFarForYear(m: Month, d: Day, y: Year, hh: Hour, mm: Minute, ss: Second): SecondsCount {
         // ((((Complete Days * 24hrs/ day)+complete hours)*60min/ hr)+complete minutes)* 60s/ min + complete seconds
         // Yay Horner's Rule!:
         return (((dateToDayOfYear(datevalue(m, d, y)) - 1) * 24 + hh) * 60 + mm) * 60 + ss
     }
 
-    function dateSinceFor(dateSince: SecondsCount, offsetSince: SecondsCount = 0, offsetYear: Year = 0): Date {
+    export function dateSinceFor(dateSince: SecondsCount, offsetSince: SecondsCount = 0, offsetYear: Year = 0): Date {
         // Find elapsed years by counting up from start year and subtracting off complete years
         let startDateCount = dateSince
         if (offsetSince > 0 && dateSince > offsetSince) startDateCount -= offsetSince
@@ -67,7 +67,7 @@ namespace dt {
         return { month: ddmm.month, day: ddmm.day, year: y, dayOfYear: daysFromStartOfYear }
     }
 
-    function timeFor(cpuTime: SecondsCount, kindid: number = null, guest: boolean = false): DateTime {
+    export function timeFor(cpuTime: SecondsCount, kindid: number = null, guest: boolean = false): DateTime {
         const deltaTime = cpuTime - cpuTimeAtSetpoint
         let sSinceStartOfYear = timeToSetpoint + deltaTime, uSince = sSinceStartOfYear
         // Find elapsed years by counting up from start year and subtracting off complete years
@@ -112,7 +112,7 @@ namespace dt {
         return dtdata[kdid]
     }
 
-    function timeSinceFor(timeSince: SecondsCount, offsetSince: SecondsCount = 0, offsetYear: Year = 0): DateTime {
+    export function timeSinceFor(timeSince: SecondsCount, offsetSince: SecondsCount = 0, offsetYear: Year = 0): DateTime {
         let sSinceStartOfYear = timeSince
         if (offsetSince > 0 && timeSince > offsetSince) sSinceStartOfYear -= offsetSince
         // Find elapsed years by counting up from start year and subtracting off complete years

@@ -14,9 +14,9 @@ namespace dtdb {
 }
 
 namespace dt {
-    let dtdata: DateTime[] = [], dtformatdata: number[][] = [], dtid: number[] = [], curarg = 0
+    export let dtdata: DateTime[] = [], dtformatdata: number[][] = [], dtid: number[] = [], curarg = 0
 
-    function checkid(arg: number): number {
+    export function checkid(arg: number): number {
         if (dtid.indexOf(arg) < 0) {
             dtid.push(curarg++)
             dtformatdata.push([0, 0, 0])
