@@ -143,26 +143,7 @@ namespace dt {
     export let startYear: Year = 0
     export let timeToSetpoint: SecondsCount = 0
     export let cpuTimeAtSetpoint: SecondsCount = 0
-    export let curKind = DateTimeData.mainDateTime
-
-    /*    
-    Time is all relative to the "start year" that is set by setDate() (or 0 by default) as follows:
-
-      Start year          Time Date/Time set        CurrentCPUTime
-      |                   | (in s)                  | (in s)
-      V                   V                         V
-      |-------------------+-------------------------|
-                          ^
-                          |
-                          Known dd/mm/yy hh:mm,.s
-                          AND cpuTimeAtSetpoint (in s)
-       |------------------|-------------------------|
-          timeToSetpoint          deltaTime
-          (in s)                  ( in s)
-    
-        setDate sets the startYear and updates timeToSetpoint and cpuTimeAtSetpoint 
-        setTime methods update just timeToSetpoint and cpuTimeAtSetpoint
-     */
+    export let curKind = dtdb.mainDateTime
 
     // State for event handlers 
     export let lastUpdateMinute: Minute = 100   // Set to invalid values for first update
