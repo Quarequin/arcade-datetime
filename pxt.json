@@ -6,6 +6,7 @@
     },
     "files": [
         "kind.ts",
+        "shadow.ts",
         "section.ts",
         "core.ts",
         "util.ts",
