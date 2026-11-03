@@ -1,5 +1,5 @@
 
-namespace DateTime {
+namespace dt {
 
     /**
      * create calendar table from date
