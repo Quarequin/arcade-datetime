@@ -1,5 +1,5 @@
 
-namespace DateTime {
+namespace dt {
 
     export class dates { constructor(public month: number, public day: number, public year: number) { } }
 
@@ -7,10 +7,10 @@ namespace DateTime {
 
     //% shim=KIND_GET
     //% blockHidden=true
-    //% kindMemberName=Datetime
+    //% kindMemberName=dt
     //% blockId=datetime_kind
     //% block="$arg"
-    //% kindNamespace=DateTimeData
+    //% kindNamespace=dtdb
     //% kindPromptHint="enter your datetime here"
     export function _datetimekindshadow(arg: number) { return arg }
 
