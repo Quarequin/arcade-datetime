@@ -5,6 +5,12 @@
         "device": "*"
     },
     "files": [
+        "kind.ts",
+        "section.ts",
+        "core.ts",
+        "util.ts",
+        "set.ts",
+        "get.ts",
         "main.blocks",
         "main.ts",
         "README.md",
