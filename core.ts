@@ -1,5 +1,5 @@
 
-namespace Datetime {
+namespace dt {
     // ********* Time Calculation / Management ************************
 
 
