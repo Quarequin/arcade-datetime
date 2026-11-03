@@ -1,5 +1,5 @@
 
-namespace DateTime {
+namespace dt {
     // ********* Enumerations for parameter types ************************
 
     let monthName: string[][] = [
