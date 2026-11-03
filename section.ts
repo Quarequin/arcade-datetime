@@ -2,12 +2,12 @@
 namespace dt {
     // ********* Enumerations for parameter types ************************
 
-    let monthName: string[][] = [
+    export const monthName: string[][] = [
         ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
         ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     ]
 
-    let weekName: string[][] = [
+    export const weekName: string[][] = [
         ["0", "1", "2", "3", "4", "5", "6"],
         ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
     ]
@@ -99,18 +99,18 @@ namespace dt {
         S2name,
     }
 
-    type Month = uint8   // 1-12 Month of year
-    type Day = uint8     // 1-31 / Day of month
-    type Year = uint16 // Assumed to be 0000-0099 or 2020-2099  
-    type Hour = uint8  // 0-23 / 24-hour format  
-    type Minute = uint8 // 0-59 
-    type Second = uint8 // 0-59
-    type DayOfYear = uint16 // 1-366
+    export type Month = uint8   // 1-12 Month of year
+    export type Day = uint8     // 1-31 / Day of month
+    export type Year = uint16 // Assumed to be 0000-0099 or 2020-2099  
+    export type Hour = uint8  // 0-23 / 24-hour format  
+    export type Minute = uint8 // 0-59 
+    export type Second = uint8 // 0-59
+    export type DayOfYear = uint16 // 1-366
 
-    type SecondsCount = uint32 // Seconds since start of start year
-    type Weekday = uint8 // Weekday code. 0=Sunday, 1=Monday, etc.
+    export type SecondsCount = uint32 // Seconds since start of start year
+    export type Weekday = uint8 // Weekday code. 0=Sunday, 1=Monday, etc.
 
-    interface DateTime {
+    export interface DateTime {
         month: Month   // 1-12 Month of year
         day: Day   // 1-31 / Day of month
         year: Year  // Assumed to be 2020 or later
@@ -120,30 +120,30 @@ namespace dt {
         dayOfYear: DayOfYear  // 1-366
     }
 
-    interface Date {
+    export interface Date {
         month: Month   // 1-12 Month of year
         day: Day   // 1-31 / Day of month
         year: Year  // Assumed to be 2020 or later
         dayOfYear: DayOfYear  // 1-366
     }
 
-    interface MonthDay {
+    export interface MonthDay {
         month: Month   // 1-12 Month of year
         day: Day   // 1-31 / Day of month
     }
 
     // ********* State Variables ************************
 
-    const TIME_AND_DATE_EVENT = 94
-    const TIME_AND_DATE_NEWMINUTE = 1
-    const TIME_AND_DATE_NEWHOUR = 2
-    const TIME_AND_DATE_NEWDAY = 3
+    export const TIME_AND_DATE_EVENT = 94
+    export const TIME_AND_DATE_NEWMINUTE = 1
+    export const TIME_AND_DATE_NEWHOUR = 2
+    export const TIME_AND_DATE_NEWDAY = 3
 
     // State variables to manage time 
-    let startYear: Year = 0
-    let timeToSetpoint: SecondsCount = 0
-    let cpuTimeAtSetpoint: SecondsCount = 0
-    let curKind = DateTimeData.mainDateTime
+    export let startYear: Year = 0
+    export let timeToSetpoint: SecondsCount = 0
+    export let cpuTimeAtSetpoint: SecondsCount = 0
+    export let curKind = DateTimeData.mainDateTime
 
     /*    
     Time is all relative to the "start year" that is set by setDate() (or 0 by default) as follows:
@@ -165,12 +165,12 @@ namespace dt {
      */
 
     // State for event handlers 
-    let lastUpdateMinute: Minute = 100   // Set to invalid values for first update
-    let lastUpdateHour: Hour = 100
-    let lastUpdateDay: Day = 100
+    export let lastUpdateMinute: Minute = 100   // Set to invalid values for first update
+    export let lastUpdateHour: Hour = 100
+    export let lastUpdateDay: Day = 100
 
 
     // Cummulative Days of Year (cdoy): Table of month (1-based indices) to cummulative completed days prior to month
     // Ex: By Feb 1st (2nd month / index 2), 31 days of Jan are completed. 
-    const cdoy: DayOfYear[] = [0, 0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365]
+    export const cdoy: DayOfYear[] = [0, 0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365]
 }
