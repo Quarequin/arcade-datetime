@@ -1,4 +1,5 @@
-namespace DateTime {
+
+namespace dt {
 
     // ********* Exposed blocks ************************
 
